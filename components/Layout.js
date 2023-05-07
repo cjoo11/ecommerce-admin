@@ -1,5 +1,6 @@
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 import Nav from "@/components/Nav";
+import LoginForm from "./LoginForm";
 
 export default function Layout({ children }) {
   const { data: session } = useSession();
@@ -7,6 +8,10 @@ export default function Layout({ children }) {
     return (
       <div className="bg-blue-900 w-screen h-screen flex items-center">
         <div className="text-center w-full">
+          <div className="w-64 mx-auto">
+            <LoginForm />
+          </div>
+          <br></br>
           <button
             onClick={() => signIn("google")}
             className="bg-white p-2 px-4 rounded-lg"

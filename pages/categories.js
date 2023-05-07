@@ -77,7 +77,7 @@ function Categories({ swal }) {
     });
   }
 
-  function handlePropertyNameChange(index, property, newName) {
+  function handlePropertyNameChange(index, newName) {
     setProperties((prev) => {
       const properties = [...prev];
       properties[index].name = newName;
@@ -85,7 +85,7 @@ function Categories({ swal }) {
     });
   }
 
-  function handlePropertyValuesChange(index, property, newValues) {
+  function handlePropertyValuesChange(index, newValues) {
     setProperties((prev) => {
       const properties = [...prev];
       properties[index].values = newValues;
@@ -141,14 +141,14 @@ function Categories({ swal }) {
           </button>
           {properties.length > 0 &&
             properties.map((property, index) => (
-              <div key={properties._id} className="flex gap-1 mb-2">
+              <div key={property._id} className="flex gap-1 mb-2">
                 <input
                   className="mb-0"
                   type="text"
                   value={property.name}
                   placeholder="Property Name (Example: Color)"
                   onChange={(e) =>
-                    handlePropertyNameChange(index, property, e.target.value)
+                    handlePropertyNameChange(index, e.target.value)
                   }
                 />
                 <input
@@ -157,7 +157,7 @@ function Categories({ swal }) {
                   value={property.values}
                   placeholder="Values, Comma Separated"
                   onChange={(e) =>
-                    handlePropertyValuesChange(index, property, e.target.value)
+                    handlePropertyValuesChange(index, e.target.value)
                   }
                 />
                 <button
