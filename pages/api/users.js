@@ -31,6 +31,6 @@ export default async function handler(req, res) {
       res.json(userDoc);
     }
   } else {
-    res.status(405).json({ error: "Method Not Allowed" });
+    res.status(405).json({ error: "Method not allowed" });
   }
 }
