@@ -68,6 +68,7 @@ export default function ProductForm({
         `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
         data
       );
+      console.log(res.data);
       setImages((existingImages) => {
         return [...existingImages, res.data.secure_url];
       });
@@ -128,6 +129,9 @@ export default function ProductForm({
                 value={productProperties[property.name]}
                 onChange={(e) => setProperty(property.name, e.target.value)}
               >
+                <option value="" disabled selected hidden>
+                  Select {property.name}
+                </option>
                 {property.values.map((value) => (
                   <option key={value._id} value={value}>
                     {value}
